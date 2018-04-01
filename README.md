@@ -23,10 +23,13 @@ This project contains start code for an exercise given at cphbusiness.dk for the
  
 ###### Refactor DateFormatter
 
-*Before* 
+*Before*
+ 
 In the original code a new Date object was instantiated inside the method which violated single responsibility pattern.
  It didn't make use of Polymorphism and it ha a static method
+ 
 *After*
+
  A interface IDateFormatter has a non static method that inject a Date instance.
 The DateFromatter implements the interface.
 
@@ -34,9 +37,10 @@ The DateFromatter implements the interface.
 By using polymorphism for JokeFetcher and EduJoke, Moma, Chuck, and Tambal implement the interface IJokeFetcher.
 Each IJokeFetcher implemetation contains the different logic for fetching the joke from the API.
 
-The difference IJokeFetcher are instantiated with a Factory Method Pattern.
 
-I IFetcherFactory is th interface an  FetcherFactory implements this.
+FetcherFactory implements IFetcherFactory interface.
+
+The difference IJokeFetcher are instantiated with FetcherFactory that uses the Factory Method Pattern.
 
 The Factory Method Pattern is used because logic is required for instancing the IJokeFetcher types. This pattern implements this logic and returns the right types,
 
