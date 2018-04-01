@@ -52,13 +52,32 @@ The Factory Method Pattern is used because logic is required for instancing the 
  
 ###### JUnit
  *Is:*
- Is a unit test framework for Java.
+ 
+ JUnit is a unit testing framework for Java programming language. It plays a crucial role test-driven development, and is a family of unit testing frameworks collectively known as xUnit. [source](https://www.tutorialspoint.com/junit/junit_overview.htm)
+ JUnit is a simple, open source framework to write and run repeatable tests. It is an instance of the xUnit architecture for unit testing frameworks. JUnit features include:
+
+Assertions for testing expected results
+Test fixtures for sharing common test data
+Test runners for running tests
+JUnit was originally written by Erich Gamma and Kent Beck. [source](https://junit.org/junit4/faq.html#overview_1)
+ 
+
  
  *Solves problem for testers:*
  
+ It is a tool for writing automated test against code.
+ It is also a tool used in TDD. It aids the programmer to write the test against his own code. So coding and testing can be done by the same developer.
+ There is huge cost benefits in discovering bugs early in the development of code.
+ 
 ###### Hamcrest
   *Is:*
+  
+  Hamcrest. Matchers that can be combined to create flexible expressions of intent.
+  
   *Solves problem for testers:*
+  
+  Extends the JUnit library with more flexibility and more readable tests.
+  
   
 ###### Mockito
   *Is:*
