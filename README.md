@@ -59,6 +59,10 @@ The difference IJokeFetcher are instantiated with FetcherFactory that uses the F
 
 The Factory Method Pattern is used because logic is required for instancing the IJokeFetcher types. This pattern implements this logic and returns the right types,
 
+Classes and Interfaces after refactoring
+
+[![https://gyazo.com/e74f25c1bb39744461439916cc049ff6](https://i.gyazo.com/e74f25c1bb39744461439916cc049ff6.png)](https://gyazo.com/e74f25c1bb39744461439916cc049ff6)
+
 ##### Execute your test cases 
 
  [![https://gyazo.com/f95872b3c7c7d5d1b19a523bd5183a0a](https://i.gyazo.com/f95872b3c7c7d5d1b19a523bd5183a0a.png)](https://gyazo.com/f95872b3c7c7d5d1b19a523bd5183a0a)
