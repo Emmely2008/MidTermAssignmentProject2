@@ -19,26 +19,32 @@ This project contains start code for an exercise given at cphbusiness.dk for the
  Refactoring
  
  
- 1) Step
+Broad
+ 
+The code was untestable because hidden dependencies.
+Separate out dependencies.
+Refactor the code using polymorphism and implement the Factory Method Pattern. 
  
 ###### Refactor DateFormatter
 
 *Before*
  
 In the original code a new Date object was instantiated inside the method which violated single responsibility pattern.
-It didn't make use of Polymorphism and it ha a static method
+It didn't make use of Polymorphism and it ha a static method.
 
 
-*The basic issue with static methods is they are procedural code. I have no idea how to unit-test procedural code. Unit-testing assumes that I can instantiate a piece of my application in isolation. During the instantiation I wire the dependencies with mocks/friendlies which replace the real dependencies.* [source](http://misko.hevery.com/2008/12/15/static-methods-are-death-to-testability/)
+*The basic issue with static methods is they are procedural code. It not easy unit-test procedural code. Unit-testing assumes that we can instantiate a piece of my application in isolation. During the instantiation I wire the dependencies with mocks/friendlies which replace the real dependencies.* [source](http://misko.hevery.com/2008/12/15/static-methods-are-death-to-testability/)
  
 *After*
 
  A interface IDateFormatter has a non static method that inject a Date instance.
-The DateFromatter implements the interface.
+The DateFromatter implements the interface IDateFormatter.
 
 ###### Refactor JokeFetcher
+
+By using polymorphism for JokeFetcher
 By using polymorphism for JokeFetcher and EduJoke, Moma, Chuck, and Tambal implement the interface IJokeFetcher.
-Each IJokeFetcher implemetation contains the different logic for fetching the joke from the API.
+Each IJokeFetcher implementation contains the different logic for fetching the joke from the API.
 
 
 FetcherFactory implements IFetcherFactory interface.
@@ -93,7 +99,7 @@ JUnit was originally written by Erich Gamma and Kent Beck. [source](https://juni
 
 No expect-run-verify also means that Mockito mocks are often ready without expensive setup upfront. They aim to be transparent and let the developer to focus on testing selected behavior rather than absorb attention.
 
-Mockito has very slim API, almost no time is needed to start mocking. There is only one kind of mock, there is only one way of creating mocks. Just remember that stubbing goes before execution, verifications of interactions go afterwards. You'll soon notice how natural is that kind of mocking when TDD-ing java code.* [soyrce](https://github.com/mockito/mockito/wiki/Features-And-Motivations)
+Mockito has very slim API, almost no time is needed to start mocking. There is only one kind of mock, there is only one way of creating mocks. Just remember that stubbing goes before execution, verifications of interactions go afterwards. You'll soon notice how natural is that kind of mocking when TDD-ing java code.* [source](https://github.com/mockito/mockito/wiki/Features-And-Motivations)
   
   
 ###### Jacoco
@@ -113,7 +119,9 @@ Mockito has very slim API, almost no time is needed to start mocking. There is o
 *State based testing is when you exercise one or many methods of an object and then assert the expected state of the object.*
 
 
-*Behavior based testing is when you expect specific interactions to occur between objects when certain methods are executed. Behavior based testers (Mockists) utilize mocks to verify expected interaction between objects of a system. Behavior based testing is about specifying how the system should behave rather than specifying the expected result of running the system.*
+*Behavior based testing is when you expect specific interactions to occur between objects when certain methods are executed. 
+Behavior based testers (Mockists) utilize mocks to verify expected interaction between objects of a system. 
+Behavior based testing is about specifying how the system should behave rather than specifying the expected result of running the system.*
 
 
 
