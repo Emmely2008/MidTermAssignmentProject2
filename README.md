@@ -166,7 +166,7 @@ The picture below shows the result from running the automated code coverage tool
 
 ##### Explain/demonstrate what was required to make this project use, JUnit (Hamcrest), Mockito and JaCoCo  
 
-The first step was to make the code testable following the SOLID principles in particular Single responsibility, polymorphism and no hidden dependencies.
+The first step was to make the code testable following the SOLID principles in particular Single Responsibility, Polymorphism and no hidden dependencies.
 The code needed to be refactored as described above to be able to test it with JUnit.
 So getting rid of hidden dependencies was the first step in doing that.
 
