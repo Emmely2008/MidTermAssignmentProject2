@@ -47,10 +47,10 @@ public class IFetcherFactoryTest {
     public void setup() {
 
         factory = mock(IFetcherFactory.class);
-        eduJoke = new Joke("edujoke","eduref");
-        chuckNorris = new Joke("chuckjoke","chuckref");
-        momaJoke = new Joke("momajoke","momaref");
-        tambalJoke = new Joke("tambaljoke","tambalref");
+        eduJoke = new Joke("edujoke","eduref"); //stubs
+        chuckNorris = new Joke("chuckjoke","chuckref"); //stubs
+        momaJoke = new Joke("momajoke","momaref"); //stubs
+        tambalJoke = new Joke("tambaljoke","tambalref"); //stubs
 
         edu = mock(EduJoke.class);
         when(edu.getJoke()).thenReturn(eduJoke);
