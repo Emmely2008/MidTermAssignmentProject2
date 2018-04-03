@@ -203,6 +203,12 @@ So getting rid of hidden dependencies was the first step in doing that.
 
 When the code was refactored the code were ready to test.
 
+I created three test files using Mockito and Hamcrests:
+
+ - IFetcherFactoryTest 
+ - DateFormatterTest
+ - JokeFetcherTest
+
 Test and verify behavior using Mockito were made easier by refactoring the code to Factory Method Pattern in IFetcherFactory interface implemented in FetcherFactory.
 
 Becuase I used JUnit 5 and the IDE Intellij both Hamcrest anf JaCoCo was build into the project and could be used on the fly.
