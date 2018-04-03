@@ -43,7 +43,7 @@ I have only focused on refactoring the code by the principles highlighted below.
  - __Single responsibility principle (A class should only have a single responsibility)__
  - Open/closed Principle (Meaning, that the code should be open for extensions, but closed for modifications)
  - Liskov substitution principle (Objects should be replaceable with instances of their subtypes and still maintain correctness, functionalwise. ie. Rest of the software doesn't need to be rewritten, because of the replacement)
- - Interface segregation principle (meaning, many interfaces are better than one general purpose one).
+ - __Interface segregation principle (meaning, many interfaces are better than one general purpose one).__
  - __Dependency inversion principle (Meaning, shifting the responsbility of dependencies away from the object, to reduce it's responsability, ie. Do Inversion of controll and dependency injection).__
  
 General steps I took to refactor the code 
@@ -70,11 +70,12 @@ The DateFromatter implements the interface IDateFormatter.
 
 #####  Refactor JokeFetcher
 
-By using polymorphism for JokeFetcher and EduJoke, Moma, Chuck, and Tambal all implements the interface IJokeFetcher.
+By using polymorphism for fetching jokes ( we do this in four distinct ways) one interface is used IJokeFetcher.  
+EduJoke, Moma, Chuck, and Tambal all implements the interface IJokeFetcher.
 Each IJokeFetcher implementation contains the different logic when fetching the joke from the API.
 
 By using polymorphism like this the JokeFetcher is now longer responsible for implementing the different ways to fetching the Jokes.
-The responsibility has been put in to IJokeFetcher.
+The responsibility has been put in to IJokeFetcher (Single Responsibility Principle). Each Class knows how to fetch the joke. Nice!
 
 
 FetcherFactory implements IFetcherFactory interface.
