@@ -5,7 +5,7 @@ _______
 
 ### Overview 
 
-This project is about Unit Testing, Testable Code, Mocking and Code Coverage. This project is taking the opposite approach than what is idiomatic. ie. We have code that is untested, now we want to test it.
+This project is about Unit Testing, Testable Code, Mocking and Code Coverage.
 An existing project is used to refactor and o write JUnit test.
 
 #### Original project startCodeForTesting1
