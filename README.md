@@ -18,13 +18,13 @@ _______
 
 ### Assignment Tasks
 
- - 1) Explain the necessary steps you did to make the code testable, and some of the patterns involved in this step 
- - 2) Execute your test cases 
- - 3) Explain basically about JUnit, Hamcrest, Mockito and Jacoco, and what problems they solve for testers 
- - 4) Demonstrate how you used Mockito to mock away external Dependencies 
- - 5) Demonstrate how/where you did state-based testing and how/where you did behavior based testing 
- - 6) Explain about Coverage Criterias, using the results presented by running Jacoco (or a similar tool) against you final test code. 
- - 7) Explain/demonstrate what was required to make this project use, JUnit (Hamcrest), Mockito and Jacoco 
+ - 01) Explain the necessary steps you did to make the code testable, and some of the patterns involved in this step 
+ - 02) Execute your test cases 
+ - 03) Explain basically about JUnit, Hamcrest, Mockito and Jacoco, and what problems they solve for testers 
+ - 04) Demonstrate how you used Mockito to mock away external Dependencies 
+ - 05) Demonstrate how/where you did state-based testing and how/where you did behavior based testing 
+ - 06) Explain about Coverage Criterias, using the results presented by running Jacoco (or a similar tool) against you final test code. 
+ - 07) Explain/demonstrate what was required to make this project use, JUnit (Hamcrest), Mockito and Jacoco 
 
  _______
  
@@ -35,21 +35,21 @@ _______
  
 ##### Refactoring
  
-General steps to refactor the code 
  
- - The code was untestable because hidden dependencies.
- - The refactoring separated out dependencies.
- - The original code violated many rules for writing testable code.
- - Refactor the code using polymorphism and the Factory Method Pattern helped to make the code more testable.
-
-
-To write testable code we should follow the SOLID principles. I have only focused on refactoring the code by the principles highlighted.
+To make the code teatable it needed to be refactored. 
+To write testable code we should follow the SOLID principles. 
+I have only focused on refactoring the code by the principles highlighted below.
 
  - __Single responsibility principle (A class should only have a single responsibility)__
  - Open/closed Principle (Meaning, that the code should be open for extensions, but closed for modifications)
  - Liskov substitution principle (Objects should be replaceable with instances of their subtypes and still maintain correctness, functionalwise. ie. Rest of the software doesn't need to be rewritten, because of the replacement)
  - Interface segregation principle (meaning, many interfaces are better than one general purpose one).
  - __Dependency inversion principle (Meaning, shifting the responsbility of dependencies away from the object, to reduce it's responsability, ie. Do Inversion of controll and dependency injection).__
+ 
+General steps I took to refactor the code 
+ 
+ - The code was untestable because hidden dependencies. The refactoring separated out dependencies.
+ - The original code violated many rules for writing testable code. Refactor the code using polymorphism and the Factory Method Pattern helped to make the code more testable.
  
 ##### Refactor DateFormatter
 
@@ -70,9 +70,11 @@ The DateFromatter implements the interface IDateFormatter.
 
 #####  Refactor JokeFetcher
 
-By using polymorphism for JokeFetcher
-By using polymorphism for JokeFetcher and EduJoke, Moma, Chuck, and Tambal implement the interface IJokeFetcher.
-Each IJokeFetcher implementation contains the different logic for fetching the joke from the API.
+By using polymorphism for JokeFetcher and EduJoke, Moma, Chuck, and Tambal all implements the interface IJokeFetcher.
+Each IJokeFetcher implementation contains the different logic when fetching the joke from the API.
+
+By using polymorphism like this the JokeFetcher is now longer responsible for implementing the different ways to fetching the Jokes.
+The responsibility has been put in to IJokeFetcher.
 
 
 FetcherFactory implements IFetcherFactory interface.
