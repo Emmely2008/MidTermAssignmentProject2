@@ -1,39 +1,61 @@
-# TestAssignmentProject2
-## startCodeForTesting1
+# Midterm Assignment Project2
+*Emmely Lundberg cph-el69*
+
+_______
+
+### Overview 
+
+This project is about Unit Testing, Testable Code, Mocking and Code Coverage. This project is taking the opposite approach than what is idiomatic. ie. We have code that is untested, now we want to test it.
+An existing project is used to refactor and o write JUnit test.
+
+#### Original project startCodeForTesting1
 
 
 This project contains start code for an exercise given at cphbusiness.dk for the educations:
 Original code project: https://github.com/Lars-m/startCodeForTesting1.git 
 
-## Assignment Tasks
+_______
 
- - Explain the necessary steps you did to make the code testable, and some of the patterns involved in this step 
- - Execute your test cases 
- - Explain basically about JUnit, Hamcrest, Mockito and Jacoco, and what problems they solve for testers 
- - Demonstrate how you used Mockito to mock away external Dependencies 
- - Demonstrate how/where you did state-based testing and how/where you did behavior based testing 
- - Explain about Coverage Criterias, using the results presented by running Jacoco (or a similar tool) against you final test code. 
- - Explain/demonstrate what was required to make this project use, JUnit (Hamcrest), Mockito and Jacoco 
+### Assignment Tasks
 
-## Assignment Solution
+ - 1) Explain the necessary steps you did to make the code testable, and some of the patterns involved in this step 
+ - 2) Execute your test cases 
+ - 3) Explain basically about JUnit, Hamcrest, Mockito and Jacoco, and what problems they solve for testers 
+ - 4) Demonstrate how you used Mockito to mock away external Dependencies 
+ - 5) Demonstrate how/where you did state-based testing and how/where you did behavior based testing 
+ - 6) Explain about Coverage Criterias, using the results presented by running Jacoco (or a similar tool) against you final test code. 
+ - 7) Explain/demonstrate what was required to make this project use, JUnit (Hamcrest), Mockito and Jacoco 
+
+ _______
+ 
+### Assignment Solution
 
  
-##### Explain the necessary steps you did to make the code testable, and some of the patterns involved in this step 
+#### 01) Explain the necessary steps you did to make the code testable, and some of the patterns involved in this step 
  
-###### Refactoring
+##### Refactoring
  
 General steps to refactor the code 
  
-The code was untestable because hidden dependencies.
-The refactoring separated out dependencies.
-The original code violated many rules for writing testable code.
-Refactor the code using polymorphism and the Factory Method Pattern helped to make the code more testable. 
+ - The code was untestable because hidden dependencies.
+ - The refactoring separated out dependencies.
+ - The original code violated many rules for writing testable code.
+ - Refactor the code using polymorphism and the Factory Method Pattern helped to make the code more testable.
+
+
+To write testable code we should follow the SOLID principles. I have only focused on refactoring the code by the principles highlighted.
+
+ - __Single responsibility principle (A class should only have a single responsibility)__
+ - Open/closed Principle (Meaning, that the code should be open for extensions, but closed for modifications)
+ - Liskov substitution principle (Objects should be replaceable with instances of their subtypes and still maintain correctness, functionalwise. ie. Rest of the software doesn't need to be rewritten, because of the replacement)
+ - Interface segregation principle (meaning, many interfaces are better than one general purpose one).
+ - __Dependency inversion principle (Meaning, shifting the responsbility of dependencies away from the object, to reduce it's responsability, ie. Do Inversion of controll and dependency injection).__
  
-###### Refactor DateFormatter
+##### Refactor DateFormatter
 
 *Before*
  
-In the original code a new Date object was instantiated inside the method which violated single responsibility pattern.
+In the original code a new Date object was instantiated inside the method which violated single responsibility pattern and is a hidden dependency.
 It didn't make use of Polymorphism and it had a static method.
 
 
@@ -43,10 +65,10 @@ This is hard or impossible when methods are static. For writing testable code st
  
 *After*
 
- A interface IDateFormatter has a non static method that inject a Date instance.
+A interface IDateFormatter has a non static method that inject a Date instance (doesn't have the responsibility to create the date).
 The DateFromatter implements the interface IDateFormatter.
 
-###### Refactor JokeFetcher
+#####  Refactor JokeFetcher
 
 By using polymorphism for JokeFetcher
 By using polymorphism for JokeFetcher and EduJoke, Moma, Chuck, and Tambal implement the interface IJokeFetcher.
@@ -63,14 +85,14 @@ Classes and Interfaces after refactoring
 
 [![https://gyazo.com/e74f25c1bb39744461439916cc049ff6](https://i.gyazo.com/e74f25c1bb39744461439916cc049ff6.png)](https://gyazo.com/e74f25c1bb39744461439916cc049ff6)
 
-##### Execute your test cases 
+#### 02) Execute your test cases 
 
  [![https://gyazo.com/f95872b3c7c7d5d1b19a523bd5183a0a](https://i.gyazo.com/f95872b3c7c7d5d1b19a523bd5183a0a.png)](https://gyazo.com/f95872b3c7c7d5d1b19a523bd5183a0a)
  
  
-##### Explain basically about JUnit, Hamcrest, Mockito and Jacoco, and what problems they solve for testers 
+#### 03) Explain basically about JUnit, Hamcrest, Mockito and Jacoco, and what problems they solve for testers 
  
-###### JUnit
+##### JUnit
 *Is:*
  
 JUnit is a unit testing framework for Java programming language. 
@@ -89,7 +111,7 @@ It is a tool for writing automated test against code.
 It is also a tool used in TDD. It aids the programmer to write the test against his own code. So coding and testing can be done by the same developer.
 There is huge cost benefits in discovering bugs early in the development of code.
  
-###### Hamcrest
+##### Hamcrest
 *Is:*
   
 Hamcrest. Matchers that can be combined to create flexible expressions of intent. Assertions can be stated declaratively.
@@ -99,7 +121,7 @@ Hamcrest. Matchers that can be combined to create flexible expressions of intent
 Extends the JUnit library with more flexibility and more readable tests. Readable rest can act as part of the documentation for developers.
   
   
-###### Mockito
+##### Mockito
 *Is:*
   
 Mockito is the most popular mocking framework for Java, but exists for other languages. 
@@ -110,7 +132,7 @@ It lets testers write (unit) tests with a clean & simple API.
 The framework aids the Junit tests in mocking away dependencies so objects can be tested in isolation.  
 It has feature of Behavior test with *verify* by asking questions about interactions after execution. 
   
-###### Jacoco
+##### Jacoco
 *Is:*
  
 JaCoCo – a code coverage reports generator for Java projects.
@@ -122,7 +144,7 @@ I saves time for testers rather than calculated it manually.
 It is a tool to message code coverage and confidence in he test.
 
   
-##### Demonstrate how you used Mockito to mock away external Dependencies 
+#### 04) Demonstrate how you used Mockito to mock away external Dependencies 
 
 I use Mockito to mock away the external dependency date in DateFormatterTest. 
 My having a mock returning a fixed date the DateFormatter class can be tested in isolation.
@@ -136,7 +158,7 @@ Below the setup of mocks for testing the JokeFetchers and FetcherFactory.
 [![https://gyazo.com/a3ec5006e2bceb17103ad8b1fd79eec7](https://i.gyazo.com/a3ec5006e2bceb17103ad8b1fd79eec7.png)](https://gyazo.com/a3ec5006e2bceb17103ad8b1fd79eec7)
 
 
-##### Demonstrate how/where you did state-based testing and how/where you did behavior based testing
+#### 05) Demonstrate how/where you did state-based testing and how/where you did behavior based testing
 
 State based testing is when you exercise one or many methods of an object and then assert the expected state of the object.
 DateFormatterTest does statebased testing by checking how the time(state) change depending on different input.
@@ -156,7 +178,7 @@ verify(dateFormatterMock,times(1)).getFormattedDate(anyString(),anyObject());// 
 [![https://gyazo.com/ab69ffc4790e8e5f113b692a686aca30](https://i.gyazo.com/ab69ffc4790e8e5f113b692a686aca30.png)](https://gyazo.com/ab69ffc4790e8e5f113b692a686aca30)
 
 
-##### Explain about Coverage Criterias, using the results presented by running JaCoCo (or a similar tool) against you final test code. 
+#### 06) Explain about Coverage Criterias, using the results presented by running JaCoCo (or a similar tool) against you final test code. 
 
 Code coverage is a way of ensuring that your tests are actually testing your code. 
 When you run your tests you are presumably checking that you are getting the expected results. 
@@ -168,7 +190,9 @@ The picture below shows the result from running the automated code coverage tool
 [![https://gyazo.com/ae3a1bd4822897f49c7661391566ecb3](https://i.gyazo.com/ae3a1bd4822897f49c7661391566ecb3.png)](https://gyazo.com/ae3a1bd4822897f49c7661391566ecb3)
 
 
-##### Explain/demonstrate what was required to make this project use, JUnit (Hamcrest), Mockito and JaCoCo  
+#### 07) Explain/demonstrate what was required to make this project use, JUnit (Hamcrest), Mockito and JaCoCo  
+
+I used the IDE IntelliJ from Jetbrains and also upgraded to JUnit 5.
 
 The first step was to make the code testable following the SOLID principles in particular Single Responsibility, Polymorphism and no hidden dependencies.
 The code needed to be refactored as described above to be able to test it with JUnit.
