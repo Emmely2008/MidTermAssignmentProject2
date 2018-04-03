@@ -121,13 +121,13 @@ Hamcrest. Matchers that can be combined to create flexible expressions of intent
   
 *Solves problem for testers:*
   
-Extends the JUnit library with more flexibility and more readable tests. Readable rest can act as part of the documentation for developers.
+Extends the JUnit library with more flexibility and more readable tests. Readable test can act as part of the documentation for developers.
   
   
 ##### Mockito
 *Is:*
   
-Mockito is the most popular mocking framework for Java, but exists for other languages. 
+Mockito is the most popular mocking framework for Java, but exists for other languages aswell. 
 It lets testers write (unit) tests with a clean & simple API. 
  
 *Solves problem for testers:*
@@ -144,13 +144,13 @@ JaCoCo – a code coverage reports generator for Java projects.
   
 It helps the tester to get fast automated generated code coverage analyzes/metrics. 
 I saves time for testers rather than calculated it manually.
-It is a tool to message code coverage and confidence in he test.
+It is a tool to measure code coverage and thereby the confidence in the (JUnit) tests.
 
   
 #### 04) Demonstrate how you used Mockito to mock away external Dependencies 
 
-I use Mockito to mock away the external dependency date in DateFormatterTest. 
-My having a mock returning a fixed date the DateFormatter class can be tested in isolation.
+I use Mockito to mock away the external dependency Date in DateFormatterTest. 
+By having a mock returning a fixed date the DateFormatter class can be tested in isolation.
 
 
 In IFetcherFactoryTest I mock away the FetcherFactory so it returns stubbed Jokes.
@@ -164,12 +164,12 @@ Below the setup of mocks for testing the JokeFetchers and FetcherFactory.
 #### 05) Demonstrate how/where you did state-based testing and how/where you did behavior based testing
 
 State based testing is when you exercise one or many methods of an object and then assert the expected state of the object.
-DateFormatterTest does statebased testing by checking how the time(state) change depending on different input.
+In DateFormatterTest I do statebased testing by checking how the time(state) change depending on different input.
 
 [![https://gyazo.com/70975fa71be4bcc1df74ae4b1dcea053](https://i.gyazo.com/70975fa71be4bcc1df74ae4b1dcea053.png)](https://gyazo.com/70975fa71be4bcc1df74ae4b1dcea053)
 
 Behavior based testing is when you expect specific interactions to occur between objects when certain methods are executed. 
-Utilization of Mockitos method verify the test verify that expected interaction between objects of a system. 
+Utilization of Mockitos method *verify* the test verify that expected interaction between objects of a system happened. 
 Behavior based testing is about specifying how the system should behave rather than specifying the expected result of running the system.
 
 Below is an example of my test where we verify a certain behavior, in this case that the method *getFormattedDate* is called exactly one time *times(1)*.
@@ -188,14 +188,14 @@ When you run your tests you are presumably checking that you are getting the exp
 Code coverage will tell you how much of your code you exercised by running the test. 
 The higher code coverage the more confidence we can have in the test. As a best practice 80% code coverage is aimed for.
 
-The picture below shows the result from running the automated code coverage tool JaCoCo. I haven't implemented 80% code coverage because I have focused on the learning aspects in this project.
+The picture below shows the result from running the automated code coverage tool JaCoCo. I haven't implemented the aimed for 80% code coverage because I have focused on the learning aspects in this project.
 
 [![https://gyazo.com/ae3a1bd4822897f49c7661391566ecb3](https://i.gyazo.com/ae3a1bd4822897f49c7661391566ecb3.png)](https://gyazo.com/ae3a1bd4822897f49c7661391566ecb3)
 
 
 #### 07) Explain/demonstrate what was required to make this project use, JUnit (Hamcrest), Mockito and JaCoCo  
 
-I used the IDE IntelliJ from Jetbrains and also upgraded to JUnit 5.
+I used the IDE IntelliJ from Jetbrains and also upgraded to JUnit 5. I couldn't use the original pom-file as is so I added some dependencies there to make it work (see pom-file).
 
 The first step was to make the code testable following the SOLID principles in particular Single Responsibility, Polymorphism and no hidden dependencies.
 The code needed to be refactored as described above to be able to test it with JUnit.
