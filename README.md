@@ -6,7 +6,7 @@ _______
 ### Overview 
 
 This project is about Unit Testing, Testable Code, Mocking and Code Coverage.
-An existing project is used to refactor and o write JUnit test.
+An existing project is used to refactor and write new JUnit test.
 
 #### Original project startCodeForTesting1
 
