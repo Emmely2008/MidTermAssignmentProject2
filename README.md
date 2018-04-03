@@ -18,13 +18,13 @@ _______
 
 ### Assignment Tasks
 
- - 01) Explain the necessary steps you did to make the code testable, and some of the patterns involved in this step 
- - 02) Execute your test cases 
- - 03) Explain basically about JUnit, Hamcrest, Mockito and Jacoco, and what problems they solve for testers 
- - 04) Demonstrate how you used Mockito to mock away external Dependencies 
- - 05) Demonstrate how/where you did state-based testing and how/where you did behavior based testing 
- - 06) Explain about Coverage Criterias, using the results presented by running Jacoco (or a similar tool) against you final test code. 
- - 07) Explain/demonstrate what was required to make this project use, JUnit (Hamcrest), Mockito and Jacoco 
+ - Explain the necessary steps you did to make the code testable, and some of the patterns involved in this step 
+ - Execute your test cases 
+ - Explain basically about JUnit, Hamcrest, Mockito and Jacoco, and what problems they solve for testers 
+ - Demonstrate how you used Mockito to mock away external Dependencies 
+ - Demonstrate how/where you did state-based testing and how/where you did behavior based testing 
+ - Explain about Coverage Criterias, using the results presented by running Jacoco (or a similar tool) against you final test code. 
+ - Explain/demonstrate what was required to make this project use, JUnit (Hamcrest), Mockito and Jacoco 
 
  _______
  
