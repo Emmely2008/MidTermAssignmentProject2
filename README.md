@@ -1,4 +1,4 @@
-# Midterm Assignment Project2
+# Midterm Assignment Project 2
 *Emmely Lundberg cph-el69*
 
 _______
